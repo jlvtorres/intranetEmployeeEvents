@@ -1,0 +1,69 @@
+<%- include('partials/header') %>
+  <%- include('partials/navbar') %>
+
+    <style>
+      .container {
+        margin-top: 100px;
+      }
+
+      a {
+        /* color: inherit; */
+        text-decoration: none;
+      }
+
+      a:hover {
+        .card-body {
+
+
+          background-color: #a9a297;
+          color: #345b6f;
+        }
+      }
+
+      .card-body {
+        border: none !important;
+      }
+
+
+      .card-body {
+        background-color: #345b6f;
+        color: white;
+
+      }
+
+      .my-border {
+        border: 2px solid red;
+      }
+
+      .card-images {
+        /* width: 355px; */
+        height: 200px;
+      }
+    </style>
+    <div class="container">
+      <div class="row">
+
+        <% data.forEach((obj, index)=> { %>
+
+          <div class="col-4 mt-3">
+            <a href="<%=obj.url%>">
+              <div class="card rounded-bottom">
+                <!-- Card Body with Title now comes first -->
+                <div class="card-body">
+                  <h5 class="card-title text-center">
+                    <%= obj.cardTitle %>
+                  </h5>
+                </div>
+                <!-- Image comes after the title -->
+                <img src="/<%= obj.img %>" class="card-img-top rounded-bottom card-images" alt="Event Image">
+              </div>
+            </a>
+
+          </div>
+
+          <%})%>
+
+            <!-- end of row div -->
+      </div>
+    </div>
+    <%- include('partials/footer') %>

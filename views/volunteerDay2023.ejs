@@ -2,9 +2,11 @@
   <%- include('partials/navbar') %>
 
     <style>
-      .container {
-        margin-top: 200px;
+      .container-fluid {
+        margin-top: 100px;
         padding-top: 8px;
+        padding-left: 100px;
+        padding-right: 100px;
 
 
       }
@@ -19,10 +21,10 @@
       .custom-back-img {
         /*
 * Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=003366&c2=ffffff&gt=c&gd=dtl
+* Gradient link: https://www.css-gradient.com/?c1=41a9ba&c2=010101&gt=l&gd=dtl
 */
-        background: #003366;
-        background: conic-gradient(from 315deg, #003366, #FFFFFF);
+        background: #41A9BA;
+        background: linear-gradient(135deg, #41A9BA, #010101);
       }
 
       .page-title {
@@ -35,13 +37,14 @@
         align-items: center;
         /* Center vertically */
         height: 100px;
+        text-shadow: 4px 4px black;
 
       }
     </style>
 
 
 
-    <div class="container inika-regular custom-back-img ">
+    <div class="container-fluid inika-regular  ">
 
       <h1 class="  page-title">
         <%=title%>

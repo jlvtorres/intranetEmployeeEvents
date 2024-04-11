@@ -11,7 +11,28 @@ app.set("view engine", "ejs");
 // Specify a port
 const PORT = process.env.PORT || 2000;
 
-app.get("/easter-2023", (req, res) => {
+app.get("/employee-events-image-gallery", (req, res) => {
+      const data = [
+            { cardTitle: `Spring Hunt 03-2024`, img: "easter2024.jpg", url: "/easter-2024" },
+            {
+                  cardTitle: "Ugly Sweater Contest and Tree Decor 12-2023",
+                  img: "christmas2023.jpg",
+                  url: "/christmas-2023",
+            },
+
+            { cardTitle: "Halloween 10-2023", img: "halloween2023.jpg", url: "/halloween-2023" },
+            { cardTitle: "Padres Game 08-2023", img: "padres2023.jpg", url: "/padres-2023" },
+            {
+                  cardTitle: "San Diego Humane Society Volunteer Day 08-2023",
+                  img: "sdhs2023.jpg",
+                  url: "/san-diego-humane-society-volunteer-day-2023",
+            },
+      ];
+
+      res.render("galleryPage", { data: data, title: "employee events image gallery", backImg: "none" });
+});
+
+app.get("/easter-2024", (req, res) => {
       const data = [
             {
                   name: "Alicia Careno ",
@@ -55,7 +76,7 @@ app.get("/easter-2023", (req, res) => {
             },
       ];
 
-      res.render("easter2023", { data: data, title: "Spring Hunt 03-2024", backImg: "easter2024.jpg" });
+      res.render("easter2024", { data: data, title: "Spring Hunt 03-2024", backImg: "easter2024.jpg" });
 });
 
 app.get("/padres-2023", (req, res) => {
@@ -136,11 +157,11 @@ app.get("/padres-2023", (req, res) => {
             data: data,
             title: "padres game",
             backImg: "padres2023.jpg",
-            title: "Padres Game 08/2023",
+            title: "Padres Game 08-2023",
       });
 });
 
-app.get("/san-diego-humane-society-volunteer-day", (req, res) => {
+app.get("/san-diego-humane-society-volunteer-day-2023", (req, res) => {
       const data = [
             {
                   name: "Amee Klobchar - Sydney Klobchar",
@@ -188,29 +209,44 @@ app.get("/san-diego-humane-society-volunteer-day", (req, res) => {
                   img: "9.jpg",
             },
             {
-                  name: "Its a private event",
+                  name: "Sam - Gaby",
                   desc: "",
                   img: "10.jpg",
             },
             {
-                  name: "Matt Yager - Sam Archila",
+                  name: "Sam Archila",
                   desc: "",
                   img: "11.jpg",
             },
             {
-                  name: "MFS Guests",
+                  name: "SDHU Coordinator - MFS Coordinator",
                   desc: "",
                   img: "12.jpg",
             },
             {
-                  name: "Our View",
+                  name: "SDHU Employee",
                   desc: "",
                   img: "13.jpg",
             },
             {
-                  name: "Servicing Dept",
+                  name: "Sydney Klobchar",
                   desc: "",
                   img: "14.jpg",
+            },
+            {
+                  name: "Virna Morales",
+                  desc: "",
+                  img: "15.jpg",
+            },
+            {
+                  name: "Yanis - Virna",
+                  desc: "",
+                  img: "16.jpg",
+            },
+            {
+                  name: "Yanis Bojorquez",
+                  desc: "",
+                  img: "17.jpg",
             },
       ];
 
@@ -218,6 +254,138 @@ app.get("/san-diego-humane-society-volunteer-day", (req, res) => {
             data: data,
             backImg: "padres2023.jpg",
             title: "San Diego Humane Society Volunteer Day 08-2023",
+      });
+});
+
+app.get("/halloween-2023", (req, res) => {
+      const data = [
+            {
+                  name: "Ari Ausage",
+                  desc: "1st Place Pumpkin Winner",
+                  img: "1.jpg",
+            },
+            {
+                  name: "Ashleigh Ashton",
+                  desc: "2nd Place Pumpkin Winner",
+                  img: "2.jpg",
+            },
+            {
+                  name: "Sandy Huntington",
+                  desc: "3rd Place Pumpkin Winner",
+                  img: "9.jpg",
+            },
+            {
+                  name: "Oscar Arias",
+                  desc: "First Place Winner",
+                  img: "6.jpg",
+            },
+            {
+                  name: "Randall Whitmore",
+                  desc: "2nd Place Costume Winner",
+                  img: "8.jpg",
+            },
+            {
+                  name: "Jerena Bryd",
+                  desc: "3rd place winner",
+                  img: "4.jpg",
+            },
+            {
+                  name: "Best Group Costume Winners",
+                  desc: "Collections",
+                  img: "3.jpg",
+            },
+            {
+                  name: "Operations Group",
+                  desc: "",
+                  img: "5.jpg",
+            },
+            {
+                  name: "Pumpkin Carving Contests",
+                  desc: "",
+                  img: "7.jpg",
+            },
+      ];
+
+      res.render("halloween2023", {
+            data: data,
+            backImg: "halloween2023.jpg",
+            title: "Halloween 10-2023",
+      });
+});
+
+app.get("/christmas-2023", (req, res) => {
+      const data = [
+            {
+                  name: "Juan Quiroz",
+                  desc: "1st Place Ugly Sweater",
+                  img: "1.jpg",
+            },
+            {
+                  name: "-Alicia Carreno - ",
+                  desc: "2nd Place Ugly Sweater",
+                  img: "2.jpg",
+            },
+            {
+                  name: "Deisy Gracida",
+                  desc: "3rd Place Ugly Sweater",
+                  img: "3.jpg",
+            },
+            {
+                  name: "Collections",
+                  desc: "Ugly Sweater",
+                  img: "4.jpg",
+            },
+            {
+                  name: "Companywide",
+                  desc: "Ugly Sweater",
+                  img: "5.jpg",
+            },
+            {
+                  name: "CSS - AS",
+                  desc: "Ugly Sweater",
+                  img: "6.jpg",
+            },
+            {
+                  name: "EDD ",
+                  desc: "Christmas Sweaters",
+                  img: "7.jpg",
+            },
+            {
+                  name: "Mark",
+                  desc: "Collections Ugly Sweater",
+                  img: "8.jpg",
+            },
+            {
+                  name: "MFS Toy Drive 2023",
+                  desc: "",
+                  img: "9.jpg",
+            },
+            {
+                  name: "Servicing Sweaters",
+                  desc: "",
+                  img: "10.jpg",
+            },
+            {
+                  name: "Supervisors",
+                  desc: "Christmas Sweaters",
+                  img: "11.jpg",
+            },
+            {
+                  name: "Tree",
+                  desc: "",
+                  img: "13.jpg",
+            },
+            {
+                  name: "Vaneesa Moreno - Stephanie Gilmore",
+                  desc: "",
+                  img: "12.jpg",
+            },
+      ];
+
+      res.render("christmas2023", {
+            data: data,
+            backImg: "christmas2023.jpg",
+            title: "Ugly Sweater Contest and Tree Decor 12-2023",
       });
 });
 
@@ -268,7 +436,7 @@ app.get("/fileNames", (req, res) => {
       }
 
       // Usage example
-      printFileNames("./public/images/08-2023 - SDHU Volunteer Day");
+      printFileNames("./public/images/12-2023 - Ugly Sweater and Tree Decor");
 });
 
 // Start the server
