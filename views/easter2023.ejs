@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+  <%- include('partials/navbar') %>
+
+    <style>
+      .container {
+        margin-top: 200px;
+        padding-top: 8px;
+
+
+      }
+
+      /* easter font style */
+      .inika-regular {
+        font-family: "Inika", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .custom-back-img {
+        background-image: url('/<%=backImg%>');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .page-title {
+
+        margin-top: 10px !important;
+        color: white;
+        display: flex;
+        justify-content: center;
+        /* Center horizontally */
+        align-items: center;
+        /* Center vertically */
+        height: 100px;
+        background: rgb(154, 217, 203);
+        background: radial-gradient(circle, rgba(154, 217, 203, 1) 0%, rgba(185, 243, 141, 1) 53%, rgba(199, 172, 207, 1) 100%);
+      }
+    </style>
+
+
+
+    <div class="container inika-regular custom-back-img ">
+
+      <h1 class="  page-title">
+        <%=title%>
+      </h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+        <!-- loop through each array of objects -->
+        <% data.forEach((obj, index)=> { %>
+          <div class="col">
+            <div class="card rounded-bottom">
+              <img src="/03-2024 - Spring Hunt/<%= obj.img %>" class="card-img-top rounded-bottom"
+                alt="Event Image <%= index + 1 %>" data-bs-toggle="modal" data-bs-target="#imageModal<%= index %>">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= obj.name %>
+                </h5>
+                <% if(obj.desc=="" ) { %>
+                  <!-- if desc is empty it creates a p tag with as a place holder so that cards have the same heigh through out  -->
+                  <p style="color: #ffffff;">----</p>
+                  <% } else { %>
+                    <p>
+                      <%= obj.desc %>
+                    </p>
+                    <% } %>
+
+              </div>
+            </div>
+          </div>
+          <!-- Modal for Image -->
+
+          <div class="modal fade" id="imageModal<%= index %>" tabindex="-1"
+            aria-labelledby="imageModalLabel<%= index %>" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <img src="/03-2024 - Spring Hunt/<%= obj.img %>" class="img-fluid" alt="Event Image <%= index + 1 %>">
+                </div>
+              </div>
+            </div>
+          </div>
+          <%})%>
+      </div>
+    </div>
+
+
+
+
+
+    <%- include('partials/footer') %>
