@@ -55,7 +55,7 @@
         <% data.forEach((obj, index)=> { %>
           <div class="col">
             <div class="card rounded-bottom">
-              <img src="/08-2023 - Padre Game/<%= obj.img %>" class="card-img-top rounded-bottom img-size"
+              <img src="<%= pathToImages %>/<%= obj.img %>" class="card-img-top rounded-bottom img-size"
                 alt="Event Image <%= index + 1 %>" data-bs-toggle="modal" data-bs-target="#imageModal<%= index %>">
               <div class="card-body">
                 <h5 class="card-title">
@@ -83,7 +83,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <img src="/08-2023 - Padre Game/<%= obj.img %>" class="img-fluid" alt="Event Image <%= index + 1 %>">
+                  <img src="<%= pathToImages %>/<%= obj.img %>" class="img-fluid" alt="Event Image <%= index + 1 %>">
                 </div>
               </div>
             </div>

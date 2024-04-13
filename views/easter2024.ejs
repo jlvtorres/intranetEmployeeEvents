@@ -21,7 +21,7 @@
       }
 
       .custom-back-img {
-        background-image: url('/<%=backImg%>');
+        background-image: url('<%=backImg%>');
         background-size: cover;
         background-position: center;
       }
@@ -55,7 +55,7 @@
         <% data.forEach((obj, index)=> { %>
           <div class="col">
             <div class="card rounded-bottom">
-              <img src="/03-2024 - Spring Hunt/<%= obj.img %>" class="card-img-top rounded-bottom"
+              <img src="<%=pathToImages%>/<%= obj.img %>" class="card-img-top rounded-bottom"
                 alt="Event Image <%= index + 1 %>" data-bs-toggle="modal" data-bs-target="#imageModal<%= index %>">
               <div class="card-body">
                 <h5 class="card-title">
@@ -83,7 +83,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <img src="/03-2024 - Spring Hunt/<%= obj.img %>" class="img-fluid" alt="Event Image <%= index + 1 %>">
+                  <img src="<%=pathToImages%>/<%= obj.img %>" class="img-fluid" alt="Event Image <%= index + 1 %>">
                 </div>
               </div>
             </div>
