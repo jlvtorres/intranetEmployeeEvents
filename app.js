@@ -1,39 +1,49 @@
 // Import express
 const express = require("express");
 const { dirname } = require("path");
-const virtualPath="other";
+const virtualPath = "other";
 // Initialize express app
 const app = express();
-const path = require('path');
+const path = require("path");
 
 //app.use(express.static(`${__dirname}/public/images`));
-app.use(`/${virtualPath}/public`, express.static(path.join(__dirname, 'public')));
+app.use(`/${virtualPath}/public`, express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
-
-
 
 // Specify a port
 const PORT = process.env.PORT || 2000;
 
-app.get(`/${virtualPath}/`,(req,res)=>{
-      res.send(`${__dirname}/public/images`)
-})
+app.get(`/${virtualPath}/`, (req, res) => {
+      res.send(`${__dirname}/public/images`);
+});
 app.get(`/${virtualPath}/employee-events-image-gallery`, (req, res) => {
       const data = [
-            { cardTitle: `Spring Hunt 03-2024`, img: `/${virtualPath}/public/images/easter2024.jpg`,  url: `/${virtualPath}/easter-2024` },
+            {
+                  cardTitle: `Spring Hunt 03-2024`,
+                  img: `/${virtualPath}/public/images/easter2024.jpg`,
+                  url: `/${virtualPath}/easter-2024`,
+            },
             {
                   cardTitle: "Ugly Sweater Contest and Tree Decor 12-2023",
-                  img: `/${virtualPath}/public/images/christmas2023.jpg`, 
+                  img: `/${virtualPath}/public/images/christmas2023.jpg`,
                   url: `/${virtualPath}/christmas-2023`,
             },
 
-            { cardTitle: "Halloween 10-2023", img:  `/${virtualPath}/public/images/halloween2023.jpg`, url:  `/${virtualPath}/halloween-2023`},
-            { cardTitle: "Padres Game 08-2023", img: `/${virtualPath}/public/images/padres2023.jpg`, url:  `/${virtualPath}/padres-2023`},
+            {
+                  cardTitle: "Halloween 10-2023",
+                  img: `/${virtualPath}/public/images/halloween2023.jpg`,
+                  url: `/${virtualPath}/halloween-2023`,
+            },
+            {
+                  cardTitle: "Padres Game 08-2023",
+                  img: `/${virtualPath}/public/images/padres2023.jpg`,
+                  url: `/${virtualPath}/padres-2023`,
+            },
             {
                   cardTitle: "San Diego Humane Society Volunteer Day 08-2023",
-                  img:  `/${virtualPath}/public/images/sdhs2023.jpg`,
-                  url:  `/${virtualPath}/san-diego-humane-society-volunteer-day-2023`,
+                  img: `/${virtualPath}/public/images/sdhs2023.jpg`,
+                  url: `/${virtualPath}/san-diego-humane-society-volunteer-day-2023`,
             },
       ];
 
@@ -84,8 +94,13 @@ app.get(`/${virtualPath}/easter-2024`, (req, res) => {
             },
       ];
 
-      const pathToImages= `/${virtualPath}/public/images/03-2024 - Spring Hunt`;
-      res.render("easter2024", { data: data, title: "Spring Hunt 03-2024", backImg:`/${virtualPath}/public/images/easter2024.jpg`, pathToImages:pathToImages });
+      const pathToImages = `/${virtualPath}/public/images/03-2024 - Spring Hunt`;
+      res.render("easter2024", {
+            data: data,
+            title: "Spring Hunt 03-2024",
+            backImg: `/${virtualPath}/public/images/easter2024.jpg`,
+            pathToImages: pathToImages,
+      });
 });
 
 app.get(`/${virtualPath}/padres-2023`, (req, res) => {
@@ -162,7 +177,7 @@ app.get(`/${virtualPath}/padres-2023`, (req, res) => {
             },
       ];
 
-      const pathToImages= `/${virtualPath}/public/images/08-2023 - Padre Game`;
+      const pathToImages = `/${virtualPath}/public/images/08-2023 - Padre Game`;
 
       res.render("padres2023", {
             data: data,
@@ -262,7 +277,7 @@ app.get(`/${virtualPath}/san-diego-humane-society-volunteer-day-2023`, (req, res
             },
       ];
 
-      const pathToImages= `/${virtualPath}/public/images/08-2023 - SDHU Volunteer Day`;
+      const pathToImages = `/${virtualPath}/public/images/08-2023 - SDHU Volunteer Day`;
 
       res.render("volunteerDay2023", {
             data: data,
@@ -321,14 +336,13 @@ app.get(`/${virtualPath}/halloween-2023`, (req, res) => {
             },
       ];
 
-      const pathToImages= `/${virtualPath}/public/images/10-2023 - Halloween`;
-
+      const pathToImages = `/${virtualPath}/public/images/10-2023 - Halloween`;
 
       res.render("halloween2023", {
             data: data,
             backImg: `/${virtualPath}/public/images/halloween2023.jpg`,
             title: "Halloween 10-2023",
-            pathToImages
+            pathToImages,
       });
 });
 
@@ -401,13 +415,13 @@ app.get(`/${virtualPath}/christmas-2023`, (req, res) => {
             },
       ];
 
-      const pathToImages= `/${virtualPath}/public/images/12-2023 - Ugly Sweater and Tree Decor`;
+      const pathToImages = `/${virtualPath}/public/images/12-2023 - Ugly Sweater and Tree Decor`;
 
       res.render("christmas2023", {
             data: data,
             backImg: `/${virtualPath}/public/images/christmas2023.jpg`,
             title: "Ugly Sweater Contest and Tree Decor 12-2023",
-            pathToImages
+            pathToImages,
       });
 });
 
@@ -417,8 +431,7 @@ app.get(`/${virtualPath}/fileNames`, (req, res) => {
 
       // Function to print all file names in the given directory
       function printFileNames(dirPath) {
-
-            const fileNames=[];
+            const fileNames = [];
             // Check if the given path is a directory
             fs.stat(dirPath, (err, stats) => {
                   if (err) {
@@ -448,7 +461,7 @@ app.get(`/${virtualPath}/fileNames`, (req, res) => {
 
                                           // If the item is a file, print its name
                                           if (stats.isFile()) {
-                                                fileNames.push(file)
+                                                fileNames.push(file);
                                           }
                                     });
                               });
@@ -461,11 +474,10 @@ app.get(`/${virtualPath}/fileNames`, (req, res) => {
             return fileNames;
       }
 
-     
-      const payLoad ={
-      fileNames:printFileNames(`/${virtualPath}/public/images/12-2023 - Ugly Sweater and Tree Decor`),
-      virtualPath:virtualPath      
-      }
+      const payLoad = {
+            fileNames: printFileNames(`/${virtualPath}/public/images/12-2023 - Ugly Sweater and Tree Decor`),
+            virtualPath: virtualPath,
+      };
       // Usage example
       res.send(JSON.stringify(payLoad));
 });
@@ -475,5 +487,6 @@ app.listen(PORT, () => {
       console.log(`Server is running on port http://localhost:${PORT}`);
 });
 
-{/* <img src="/myapp/public/images/example.jpg" alt="Example Image"> */}
-
+{
+      /* <img src="/myapp/public/images/example.jpg" alt="Example Image"> */
+}
