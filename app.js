@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 2000;
 app.get(`/${virtualPath}/`, (req, res) => {
       res.send(`${__dirname}/public/images`);
 });
-app.get(`/${virtualPath}/employee-events-image-gallery`, (req, res) => {
+app.get(`/${virtualPath}/company-events-image-gallery`, (req, res) => {
       const data = [
             {
                   cardTitle: `Spring Hunt 03-2024`,
