@@ -31,6 +31,24 @@
     background-size: cover;
     background-position: center;
   }
+
+  /* new code */
+
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+  }
+
+  body {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "main" "footer";
+    grid-template-rows: 1fr 80px;
+  }
 </style>
 
-<body class="custom-back-img">
+<body class="custom-back-img ">
+
+  <div class="content">
