@@ -39,6 +39,9 @@
         background: rgb(154, 217, 203);
         background: radial-gradient(circle, rgba(154, 217, 203, 1) 0%, rgba(185, 243, 141, 1) 53%, rgba(199, 172, 207, 1) 100%);
       }
+      .c-image{
+      
+      }
     </style>
 
 
@@ -48,14 +51,14 @@
       <h1 class="  page-title">
         <%=title%>
       </h1>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
 
 
         <!-- loo through each array of objects -->
         <% data.forEach((obj, index)=> { %>
           <div class="col">
             <div class="card rounded-bottom">
-              <img src="<%=pathToImages%>/<%= obj.img %>" class="card-img-top rounded-bottom"
+              <img src="<%=pathToImages%>/<%= obj.img %>" class="card-img-top rounded-bottom c-image" 
                 alt="Event Image <%= index + 1 %>" data-bs-toggle="modal" data-bs-target="#imageModal<%= index %>">
               <div class="card-body">
                 <h5 class="card-title">

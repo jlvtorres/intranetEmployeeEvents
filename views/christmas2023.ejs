@@ -46,6 +46,15 @@
 
 
       }
+
+      .c-image{
+        /* width: 300px; */
+      }
+
+      .my-custom-card {
+    /* max-width: 350px; Adjust this value as needed */
+}
+
     </style>
 
 
@@ -55,14 +64,14 @@
       <h1 class="  page-title">
         <%=title%>
       </h1>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="row row-cols-1 row-cols-md-4 g-4">
 
 
         <!-- loop through each array of objects -->
         <% data.forEach((obj, index)=> { %>
           <div class="col">
-            <div class="card rounded-bottom">
-              <img src="<%= pathToImages %>/<%= obj.img %>" class="card-img-top rounded-bottom"
+            <div class="card rounded-bottom  my-custom-card">
+              <img src="<%= pathToImages %>/<%= obj.img %>" class="card-img-top rounded-bottom c-image"
                 alt="Event Image <%= index + 1 %>" data-bs-toggle="modal" data-bs-target="#imageModal<%= index %>">
               <div class="card-body">
                 <h5 class="card-title">
